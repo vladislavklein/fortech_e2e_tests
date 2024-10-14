@@ -1,4 +1,4 @@
-Cypress.Commands.add("expectCountryCodeNumberIncludeInPlaceholderValue", (countryCode) => {
+Cypress.Commands.add("expectPlaceholderContainsCountryCode", (countryCode) => {
   cy.get('input[name="phone"]')
     .invoke("val")
     .should("include", `${countryCode}`);
@@ -6,7 +6,7 @@ Cypress.Commands.add("expectCountryCodeNumberIncludeInPlaceholderValue", (countr
 
 // messages after submitting form
 
-Cypress.Commands.add("expectSubmitSuccessfulMessageIsVisible", () => {
+Cypress.Commands.add("expectSubmitSuccessfulVisible", () => {
   const sucessfulTitle = "";
   const sucessfulText = "";
 
@@ -17,7 +17,7 @@ Cypress.Commands.add("expectSubmitSuccessfulMessageIsVisible", () => {
     .should("be.visible");
 });
 
-Cypress.Commands.add("expectSubmitErrorIsVisible", () => {
+Cypress.Commands.add("expectSubmitErrorVisible", () => {
   const errorTitle = "Ошибка";
   const errorText = "Отправить сообщение не удалось. Пожалуйста попробуйте позже.";
   

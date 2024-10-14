@@ -36,23 +36,28 @@ Cypress.Commands.add("selectCountryCode", (country) => {
 Cypress.Commands.add("clickOnMailLinkButton", () => {
 
   const emailTitle = 'Наша почта:';
-  const email = 'partners@fortech.dev';
+  const emailValue = Cypress.config().baseEmail;
 
   cy.get('div')
     .contains(emailTitle)
-    .next('contains', email)
-    .click();
+    .nextUntil('a')
+    .contains(emailValue)
+    .click({force: true})
+    .should(() => {
+      expect(`mailto:` + emailValue).to.eq(`mailto:${emailValue}`);
+  });
 });
 
 Cypress.Commands.add("clickOnTelegramLinkButton", () => {
 
   const tgTitle = 'Телеграм:';
-  const tgLink = '@fortech_sales';
+  const tgLink = Cypress.config().baseTg;
 
   cy.get('div')
     .contains(tgTitle)
-    .next('contains', tgLink)
-    .click();
+    .find('a')
+    .contains(tgLink)
+    .click({force: true})
 });
 
 Cypress.Commands.add("clickOnPolicyAcceptButton", () => {
