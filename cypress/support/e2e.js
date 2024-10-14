@@ -16,8 +16,11 @@
 // Import commands.js using ES2015 syntax:
 
 import './commands'
-import './feedbackForms/formNameEmailPhone/actions'
-import './feedbackForms/formNameEmailPhone/effects'
+import './feedbackForms/mainForms/actions'
+import './feedbackForms/mainForms/effects'
+
+import './feedbackForms/contactsPageForm/actions'
+import './feedbackForms/contactsPageForm/effects'
 
 import './main-page/feedback-form/effects'
 import './main-page/feedback-form/consts'

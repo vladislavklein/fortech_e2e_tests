@@ -16,6 +16,11 @@ Cypress.Commands.add("typeDescription", (description) => {
   cy.get('textarea[name="taskDescription"]').clear().type(description);
 });
 
+Cypress.Commands.add("typeTgNickname", (typeTgNickname) => {
+  cy.get('textarea[name="taskDescription"]').clear().type(typeTgNickname);
+});
+
+
 // form buttons:
 
 Cypress.Commands.add("clickOnCountryCodeDropdownButton", () => {
