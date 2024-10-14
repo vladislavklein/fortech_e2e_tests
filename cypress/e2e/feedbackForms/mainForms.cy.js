@@ -40,7 +40,7 @@ describe("NAME input validation: VALID", () => {
 
   it("Select CountryCode in PhoneNumber Input", () => {
     cy.clickOnCountryCodeDropdownButton()
-      .selectCountryCode("Russia")
+      .selectCountryCode(countryCode.russia.name)
       .expectCountryCodeNumberIncludeInPlaceholderValue(countryCode.russia.code)
       // .expectErrorMessageIsVisible();
   });
