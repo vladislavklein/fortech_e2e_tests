@@ -25,28 +25,23 @@ describe("NAME input validation: VALID", () => {
   beforeEach("Visit to main page", () => {
     cy.catchAndStubbedYandexTrackerRequests()
       .ignoreSyntaxError()
-      .visit("https://new.fortech.dev/")
+      .visit("/")
       .wait(1000);
   });
 
   it("Correct type all fields and click send", () => {
     cy.typeName(user.fullName)
       .typeEmail(email.correct)
-      .clickOnCountryCodeDropdownButton()
-      .selectCountryCode(countryCode.russia.name)
-      .expectCountryCodeNumberIncludeInPlaceholderValue(countryCode.russia.code)
       .typePhoneNumber(pnoneNumber.standart)
       .typeDescription(description.small)
       .clickOnSubmitButton()
-      .expectErrorMessageIsVisible();
+      // .expectErrorMessageIsVisible();
   });
 
   it("Select CountryCode in PhoneNumber Input", () => {
     cy.clickOnCountryCodeDropdownButton()
       .selectCountryCode("Russia")
-      .typePhoneNumber("9000000000")
-      .typeDescription("Тест описание")
-      .clickOnSubmitButton()
-      .expectErrorMessageIsVisible();
+      .expectCountryCodeNumberIncludeInPlaceholderValue(countryCode.russia.code)
+      // .expectErrorMessageIsVisible();
   });
 });

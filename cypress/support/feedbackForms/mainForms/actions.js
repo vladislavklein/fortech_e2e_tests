@@ -4,8 +4,8 @@ Cypress.Commands.add("typeName", (name) => {
   cy.get('input[name="name"]').clear().type(name);
 });
 
-Cypress.Commands.add("typeEmail", (email) => {
-  cy.get('input[name="email"]').clear().type(email);
+Cypress.Commands.add("typeEmail", (emailValue) => {
+  cy.get('input[name="email"]').clear().type(emailValue);
 });
 
 Cypress.Commands.add("typePhoneNumber", (phoneNumber) => {
